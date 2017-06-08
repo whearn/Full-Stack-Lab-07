@@ -1,6 +1,6 @@
 //Creates the Die class for all dice
-var Die = function() {
-    this.value = Math.floor(Math.random() * (7-1)) + 1;
+var Die = function(value) {
+    this.value = value;
     this.div = document.createElement('div');
     this.div.className = 'die';
     this.div.innerHTML = this.value;
@@ -37,7 +37,8 @@ var sumBtn = document.getElementById('sum');
 
 //Generates a new die with a new value
 generateBtn.addEventListener('click', function() {
-    myDice.push(new Die());
+    var newValue = Math.floor(Math.random() * (7-1)) + 1
+    myDice.push(new Die(newValue));
 });
 
 //Re-rolls the values of each die currently on the page
